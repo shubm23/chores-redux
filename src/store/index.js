@@ -1,5 +1,9 @@
-import { createStore } from 'redux';
-
-export const store = createStore(
-  (state = { humans: [], tasks: [] }, action) => state
-);
+import { configureStore } from '@reduxjs/toolkit';
+import { taskReducer } from './tasksSlice';
+import { humansReducer } from './humansSlice';
+export const store = configureStore({
+  reducer: {
+    tasks: taskReducer,
+    humans: humansReducer
+  }
+});
